@@ -1,22 +1,15 @@
-BUF_PATH = /usr/local/bin/buf-Linux-x86_64
-
-
-.PHONY: gen
 gen:
-	@$(BUF_PATH) generate
+	buf generate
 
 run:
 	docker-compose up back --build
 
 
-run-dummy-broker:
+run-env:
 	docker-compose up nats --build
 
-run-all: run run-dummy-broker
+run-all: run-env run
 
 drop:
 	docker-compose down --volumes
 
-
-db_clean:
-	sudo rm -rf db/postgres/01-init.sql/ db/postgres/postgres-data/

@@ -79,6 +79,8 @@ func main() {
 		Addr:    fmt.Sprintf("%s:%d", viper.GetString("http-hostname"), viper.GetInt("dev-http-handlers-port")),
 		Handler: c.Handler(mux),
 	}
+	log.Println("Starting http gateway at ", viper.GetInt("dev-http-handlers-port"))
+
 	log.Printf("Service %s started successfully\n", viper.GetString("service-name"))
 	log.Fatalln(srv.ListenAndServe())
 }
