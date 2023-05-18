@@ -1,0 +1,26 @@
+version: v1
+managed:
+  enabled: true
+
+  go_package_prefix:
+    default: item-service/pkg/gen/go
+    except:
+      - buf.build/googleapis/googleapis
+plugins:
+  # go
+  - plugin: buf.build/grpc-ecosystem/gateway
+    out: pkg/gen/go
+    opt:
+      - paths=source_relative
+  - plugin: buf.build/grpc/go
+    out: pkg/gen/go
+    opt:
+      - paths=source_relative
+  # go dependencies
+  - plugin: buf.build/protocolbuffers/go
+    out: pkg/gen/go
+    opt:
+      - paths=source_relative
+  # openapi
+  - plugin: buf.build/grpc-ecosystem/openapiv2:v2.15.2
+    out: pkg/gen/openapi

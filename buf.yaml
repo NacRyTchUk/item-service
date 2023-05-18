@@ -1,0 +1,14 @@
+version: v1
+
+name: buf.build/nacrytchuk/item_service
+
+
+lint:
+  use:
+    - DEFAULT
+  ignore:
+    - google
+
+breaking:
+  use:
+    - FILE
