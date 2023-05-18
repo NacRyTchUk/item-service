@@ -1,0 +1,19 @@
+service-name: item-service
+workmode: "dev"
+http-hostname: back
+dev-http-handlers-port: 8080
+cors-origins:
+  - "http://localhost:80"
+
+database-host: database
+database-port: 5432
+database-user: postgres
+database-dbname: item-db
+database-password: postgres
+
+cache-host: cache
+cache-port: 6379
+cache-password: debug_pass
+
+nats-host: nats
+nats-port: 4222

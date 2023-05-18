@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package item_service.model.v1;
+
+option go_package = "item-service/pkg/gen/go/api/model/v1;proto_item_model";
+import "google/protobuf/timestamp.proto";
+
+
+message Item {
+  int64 id = 1;
+  int64 campaign_id = 2;
+  string name = 3;
+  optional string description = 4;
+  int64 priority = 5;
+  bool removed = 6;
+  int64 created_at = 7; //unix
+}
